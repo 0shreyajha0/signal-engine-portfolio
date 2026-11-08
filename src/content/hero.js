@@ -11,9 +11,9 @@ export const HERO = {
     { label: 'Enter the Build Lab', href: '#build' },
   ],
   facts: [
-    ['Now', 'PM — YesMadam'],
-    ['Before', 'Physics Wallah, 2 yrs'],
+    ['Now', 'PM — YesMadam, ~1 yr'],
+    ['Before', 'Physics Wallah, 2.5 yrs'],
     ['Foundation', 'B.Tech, DTU · CS minor'],
   ],
-  hints: ['Move to steer signal', 'Hover a lens to isolate it'],
+  hints: ['Move to steer the signal', 'Hover a lens to isolate it'],
 };

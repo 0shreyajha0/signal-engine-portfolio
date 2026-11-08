@@ -4,12 +4,13 @@ export const ABOUT = {
   index: 'About',
   title: 'Engineer by training,',
   titleAccent: 'PM by practice.',
-  lead: 'I started by writing code and building ML models. Now I decide <em>what</em> gets built, and I still build it myself when that’s the fastest way to learn.',
+  lead: 'I trained as an engineer and built an ML model to predict noise pollution. Now I decide <em>what</em> gets built, and I still build it myself when that’s the fastest way to learn.',
   paragraphs: [
-    '[Draft] Short personal paragraph: what pulls you toward AI products, the kind of problems you love, and what you’re like to work with.',
-    '[Draft] Second paragraph: a specific moment that shaped how you work. Keep it human.',
+    'At DTU I studied environmental engineering with a minor in computer science. My projects there modelled noise: a pollution-prediction model the university adopted, and a study of acoustics in campus study spaces, published at ICSTCE 2024.',
+    '[Draft] Why product: the moment you moved from building to deciding what to build. Two or three sentences.',
+    '[Draft] Why AI now, and the kind of team you want to join.',
   ],
-  portrait: { src: '', alt: 'Portrait of Shreya Jha', badge: 'Open to AI PM roles', basedIn: 'Noida · Delhi NCR' },
+  portrait: { src: '', alt: 'Portrait of Shreya Jha', badge: 'Open to PM roles & challenges', basedIn: 'Noida · Delhi NCR' },
   path: [
     { year: '2020 — 24', title: 'B.Tech, DTU', detail: 'Env. Eng. + CS minor · ML research' },
     { year: '2023', title: 'X2S Technologies', detail: 'SDE Intern' },
@@ -18,9 +19,9 @@ export const ABOUT = {
     { year: 'Next', title: 'AI products', detail: 'Deeper AI specialisation', next: true },
   ],
   principles: [
-    { lens: 'c', title: 'Start from the behaviour, not the feature request', body: '[Draft] One or two lines on how you work.' },
-    { lens: 'g', title: 'Every launch is an experiment with a hypothesis', body: '[Draft] One or two lines on how you work.' },
-    { lens: 'a', title: 'Prototype the hard part first', body: '[Draft] One or two lines on how you work.' },
+    { lens: 'c', title: 'Start from the behaviour, not the feature request', body: 'Requests describe solutions. Usage data and support tickets describe problems.' },
+    { lens: 'g', title: 'Every launch is an experiment with a hypothesis', body: 'If I can’t say what would prove it wrong, it isn’t ready to ship.' },
+    { lens: 'a', title: 'Prototype the hard part first', body: 'With AI, the risky part is whether the model is good enough, so I test that before designing the screens.' },
   ],
   skills: [
     ['Product', 'Strategy, roadmapping, pricing & monetisation, prioritisation, stakeholder management'],

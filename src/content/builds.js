@@ -26,7 +26,7 @@ export const BUILDS = [
   {
     id: 'noise-model',
     title: 'Noise Pollution Predictor',
-    summary: 'ML model forecasting urban noise levels; adopted by DTU',
+    summary: 'ML model forecasting noise pollution, adopted by DTU',
     status: 'live', lens: ['a'], stack: 'Python · ML', year: '2024',
     links: { demo: '', code: '' },
     page: {},
@@ -58,9 +58,9 @@ export const BUILDS = [
   {
     id: 'this-site',
     title: 'This Portfolio',
-    summary: 'Designed and vibe-coded end to end: WebGL, motion system, content-driven layout',
-    status: 'live', lens: ['c', 'a'], stack: 'Three.js · GLSL · Vite', year: '2026',
-    links: { demo: '', code: '' },
+    summary: 'Designed and coded end to end: WebGL, a motion system, content-driven layout',
+    status: 'live', lens: ['c', 'a'], stack: 'Three.js · GLSL · JS', year: '2026',
+    links: { demo: '', code: 'https://github.com/0shreyajha0/signal-engine-portfolio' },
     page: {},
   },
 ];

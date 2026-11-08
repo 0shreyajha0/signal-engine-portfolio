@@ -11,14 +11,14 @@ export const PRACTICE = {
   index: 'Practice',
   title: 'One input.',
   titleAccent: 'Three lenses.',
-  intro: 'Every product question starts as user signal. I read it three ways, and the best work sits where they overlap.',
+  intro: 'Every product question starts as user behaviour. I read it as a consumer problem, a growth lever and a modelling opportunity, and the best work uses all three.',
   footLeft: 'Colour = lens. It tags every case, build and essay below.',
   footRight: 'Engineering foundation · DTU CS minor',
   lenses: [
     {
       key: 'c',
       question: 'What does the person on the other side of the screen actually need?',
-      evidence: [['+15%', 'premium discovery'], ['−33%', 'pay drop-off']],
+      evidence: [['+15%', 'premium-category discovery'], ['−33%', 'payment drop-off']],
       tags: ['Customer journeys', 'Discovery', 'Personalisation', 'Marketplaces', 'Engagement'],
     },
     {
@@ -29,8 +29,8 @@ export const PRACTICE = {
     },
     {
       key: 'a',
-      question: 'Where can a model make the product meaningfully smarter, and safely?',
-      evidence: [['+21%', 'retention via churn model']],
+      question: 'Where can a model make the product smarter, and how do we know it’s working?',
+      evidence: [['+21%', 'retention via churn model'], ['12', 'personalisation parameters']],
       tags: ['Predictive models', 'GenAI · RAG', 'AI evals', 'Automation', 'Data products'],
     },
   ],

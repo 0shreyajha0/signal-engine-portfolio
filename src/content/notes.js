@@ -6,7 +6,7 @@ export const NOTEBOOK = {
   title: 'Written',
   titleAccent: 'thinking.',
   intro: 'Essays on AI product management, growth, user psychology and experimentation.',
-  empty: 'Nothing filed under this topic yet.',
+  empty: 'Nothing filed under this topic yet. Pick another, or come back soon.',
 };
 
 export const NOTES = [
