@@ -2,7 +2,7 @@
 
 > **Purpose of this file.** Everything a new collaborator (human or a new Claude session/account) needs to continue this project without the original chat: what we're building, every decision and why, what exists where, how it was built step by step, what's still open, and how to pick up.
 >
-> **Last updated:** 2026-11-08 (real content pass) · **Owner:** Shreya Jha (GitHub: `0shreyajha0`)
+> **Last updated:** 2026-11-08 (hosting status) · **Owner:** Shreya Jha (GitHub: `0shreyajha0`)
 
 ---
 
@@ -27,14 +27,16 @@ npm run dev        # http://localhost:5173
 
 | Thing | Location | Notes |
 | --- | --- | --- |
-| **Live site** | https://0shreyajha0.github.io/signal-engine-portfolio/ | GitHub Pages, auto-deploys on every push to `main` |
+| **Live site** | https://0shreyajha0.github.io/signal-engine-portfolio/ | GitHub Pages, auto-deploys on every push to `main`. The working, verified address |
 | **Source code (this repo)** | https://github.com/0shreyajha0/signal-engine-portfolio | Public. Vite + vanilla JS + three.js |
 | Local copy (original Mac) | `~/shreya-portfolio/site` | `~/shreya-portfolio/portfolio/index.html` = the first single-file prototype (superseded by this repo) |
 | **Figma design file** | https://www.figma.com/design/3PVG2FMpUunzLv6NoOfQJz | "Shreya Jha — Portfolio (Signal Engine)", in Shreya's Figma drafts (team "Shreya Jha's team", Starter plan) |
 | Copy deck (Claude Docs) | https://claude.ai/artifact/72xug71KGVPYeWVMDvUQgU | Tied to the original Claude account — **may not open from a new account**. Its approved content is already in `src/content/*` and summarised in §7 below |
 | Old portfolio repos (untouched) | `0shreyajha0/Shreya-Portfolio` (2023, Vercel: shreya-portfolio-neon.vercel.app), `0shreyajha0/simple-portfolio-shreyajha-in`, `0shreyajha0/portfolio` | Leave alone unless Shreya asks |
 | Real project repo to link later | `0shreyajha0/Noise-Predicting-Model` | The Noise Pollution Predictor build — candidate for its "code" link |
-| Domain | `shreyajha.in` | Still points at the **old** site. Not moved yet (needs Shreya's go-ahead + DNS change) |
+| Domain | `shreyajha.in` | DNS at **GoDaddy** (nameservers `ns53/ns54.domaincontrol.com`). `@` → Vercel (76.76.21.21), `www` → `cname.vercel-dns.com`: still serves the **old** site from Vercel. Untouched |
+| Planned subdomain | `portfolio.shreyajha.in` | Free. Not live: the GoDaddy CNAME was never published (see §6, step 11) |
+| Vercel project (new) | URL not confirmed yet | Shreya imported the repo on Vercel; no `.vercel.app` address found yet and Vercel hasn't reported a deployment to GitHub (see §6, step 11) |
 
 ---
 
@@ -135,11 +137,19 @@ Build a premium, highly interactive, **3D-animated personal portfolio** — firs
     - Notebook: 9 real Medium essays from her RSS feed (`medium.com/feed/@0shreyajha0`), each linking out; featured = "Spec-Driven Development". Excluded as off-theme: "Types of Errors in JavaScript", "The Art of Balancing Multiple Responsibilities", and two 2024 environmental-science posts (G20 air quality; environmental science & tech).
     - Build Lab: replaced placeholder AI slots with real GitHub projects, described only from their code/READMEs: Noise-Predicting-Model, virtual-Restaurants (Grubhub vs Uber Eats hours SQL), Stats-Dashboard, Data-Visualiser, plus this site. `Ultra-Writing-AI` skipped (unmodified React template). Project pages now show a "launch" panel (live app / code) instead of a chat mock.
     - Placeholder copy written by Claude at Shreya's request (marked `PLACEHOLDER` in code — replace with her own words): About "why product" + "why AI" paragraphs; YesMadam ARPU problem, premium-discovery decision, marketplace-efficiency decision; PW ARPU problem.
+11. **Hosting on a custom domain (in progress).**
+    - Shreya chose a **subdomain** so the old site at `shreyajha.in` stays as is. Picked `portfolio.shreyajha.in` (confirmed unused).
+    - Set it as the GitHub Pages custom domain (`gh api -X PUT repos/0shreyajha0/signal-engine-portfolio/pages -f cname=portfolio.shreyajha.in`). Shreya added `CNAME portfolio → 0shreyajha0.github.io` in GoDaddy, but GoDaddy's authoritative nameserver never showed it (zone serial stayed `2024032500` for 3+ min) — likely not saved, saved in the wrong place (e.g. Vercel), or the Name field held the full domain.
+    - Because GitHub Pages redirects the github.io URL to a custom domain, the site was briefly unreachable, so the custom domain was **removed again** (`echo '{"cname":null}' | gh api -X PUT …/pages --input -`). github.io works again (verified 200).
+    - Shreya then chose to host on **Vercel** with a free `.vercel.app` address for now (custom domain later). She imported the repo at vercel.com/new and reported it deployed, but the URL isn't confirmed: `signal-engine-portfolio.vercel.app`, `shreyajha-portfolio.vercel.app` and account-suffixed variants all returned 404, and no Vercel deployment/status appears on the GitHub repo. **Next:** get the exact URL from the Vercel project's Overview → Domains, check the deployment is "Ready", and confirm it's Git-connected (so pushes auto-deploy).
+    - Vercel needs no special settings: Framework Vite, build `npm run build`, output `dist`, root `./`. The Vite `base` stays `/` there (the GitHub Pages workflow sets its own base).
 
 **Practical gotchas learned:**
 - Claude's sandboxed shell can't read the macOS keychain, so `gh`/`git push` must run in Shreya's own Terminal (Claude used the app's Terminal panel). Creating a *public* repo is blocked for Claude by the app's safety check — Shreya ran that command herself.
 - The app's "Run" button on code blocks may also be blocked; pasting into a terminal works.
 - Figma captures need a full page reload per capture ID (hash-only changes don't reload).
+- Setting a GitHub Pages custom domain makes the github.io URL redirect to it immediately, so add and verify DNS first.
+- Check DNS against GoDaddy's own nameserver (`dig +short CNAME portfolio.shreyajha.in @ns53.domaincontrol.com`) to tell "not saved" from "still propagating".
 
 ---
 
@@ -183,7 +193,7 @@ See `README.md` for the full table. Short version:
 1. Add 1–3 AI builds (agent / RAG / GenAI) — the biggest gap for the AI PM positioning.
 2. Replace Claude's `PLACEHOLDER` copy (About stories, Work "before"s) with Shreya's own words.
 3. Pull PM case studies from the Notion portfolio into Work or Build Lab.
-4. Decide on `shreyajha.in`: add custom domain in repo Settings → Pages, then point DNS (replaces the current site).
+4. Finish hosting: confirm the Vercel URL and Git connection; later add a custom domain in Vercel → Settings → Domains (e.g. `portfolio.shreyajha.in`, likely one GoDaddy CNAME to `cname.vercel-dns.com`). Alternatively, on GitHub Pages: re-add the GoDaddy CNAME (`portfolio` → `0shreyajha0.github.io`), confirm it on `ns53.domaincontrol.com` **before** setting the Pages custom domain, then re-run the deploy workflow and enforce HTTPS. Don't change `@`/`www`, which serve the old site.
 5. Update Figma: re-capture screens with About above Work and final copy (`generate_figma_design` with `?static`), keep System page in sync with `tokens.css`.
 6. Optional polish: OG share image, per-build architecture steps (`page.pipeline` in `builds.js`), essay bodies in reading mode, analytics.
 
