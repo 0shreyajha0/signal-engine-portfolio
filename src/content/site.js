@@ -17,7 +17,7 @@ export const LINKS = {
   linkedin: 'https://linkedin.com/in/shreyajha-co',
   github: '',            // TODO: add your GitHub profile URL
   medium: '',            // TODO: add your Medium profile URL
-  resume: '/resume.pdf', // put your PDF at public/resume.pdf
+  resume: import.meta.env.BASE_URL + 'resume.pdf', // put your PDF at public/resume.pdf
 };
 
 export const META = {

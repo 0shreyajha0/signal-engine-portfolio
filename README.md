@@ -62,7 +62,7 @@ The repo includes `.github/workflows/deploy.yml`, which builds and publishes to 
 
 1. On GitHub: **Settings → Pages → Source: GitHub Actions** (once).
 2. Push to `main`. The site appears at `https://<username>.github.io/<repo>/`.
-   For that address, set `base: '/<repo>/'` in `vite.config.js`. For a custom domain, keep `base: '/'`.
+   The workflow sets the right base path automatically, for that address or a custom domain.
 3. Custom domain (e.g. `shreyajha.in`): add it under **Settings → Pages → Custom domain**, then point your DNS at GitHub Pages ([GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)). Moving the domain replaces whatever it currently serves.
 
 Day-to-day: edit in VS Code → check with `npm run dev` → commit → push. The live site updates in about a minute.

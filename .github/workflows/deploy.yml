@@ -25,8 +25,11 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: npm ci
-      - run: npm run build
+      # base_path is "/<repo>" on <user>.github.io, or "" once a custom domain is set
+      - run: npm run build -- --base=${{ steps.pages.outputs.base_path }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
