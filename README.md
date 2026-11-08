@@ -4,6 +4,8 @@ A 3D, motion-led portfolio for a Product Manager working across **consumer, grow
 Plain HTML/CSS/JS built with [Vite](https://vitejs.dev), with a [three.js](https://threejs.org) scene for the hero.
 No framework to learn: every section is a small file you can read top to bottom.
 
+**Picking this up fresh (new machine or new Claude account)?** Start with [`docs/PROJECT_CONTEXT.md`](docs/PROJECT_CONTEXT.md): the full brief, design decisions, step-by-step history, open items and next steps.
+
 ## Run it locally
 
 ```bash
