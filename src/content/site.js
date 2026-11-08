@@ -14,9 +14,10 @@ export const SECTIONS = [
 
 export const LINKS = {
   email: 'shreyajha.co@gmail.com',
-  linkedin: 'https://linkedin.com/in/shreyajha-co',
-  github: '',            // TODO: add your GitHub profile URL
-  medium: '',            // TODO: add your Medium profile URL
+  linkedin: 'https://www.linkedin.com/in/shreyajha-co/',
+  github: 'https://github.com/0shreyajha0',
+  medium: 'https://medium.com/@0shreyajha0',
+  caseStudies: 'https://app.notion.com/p/Shreya-s-Product-Management-Portfolio-22dd6689d302805aa796c3bc1f56279c',
   resume: import.meta.env.BASE_URL + 'resume.pdf', // put your PDF at public/resume.pdf
 };
 

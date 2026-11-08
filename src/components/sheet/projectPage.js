@@ -48,14 +48,13 @@ export function projectPage(id) {
           <div><span class="k">Links</span><span>${link(b.links?.demo, 'Demo')} · ${link(b.links?.code, 'Code')}</span></div>
         </div>
       </div>
-      <div class="demo" aria-label="Demo area">
-        <div class="demo-chrome"><span class="mono" style="color:${hex}">● Live demo</span><span class="u mono">${esc(b.links?.demo || 'demo link coming soon')}</span><span class="mono muted">Embed or recording</span></div>
-        <div class="demo-stage">
-          <div class="demo-side"><span class="mono muted">Sources</span><div class="pv-row" style="width:80%"></div><div class="pv-row" style="width:60%"></div><div class="pv-row" style="width:70%"></div></div>
-          <div class="demo-main"><div class="pv-glow" style="background:${hex};opacity:.25"></div>
-            <div class="bubble me">[Example question a user would ask]</div>
-            <div class="bubble">[Example grounded answer from the build]<div class="cite"><i>doc·03</i><i>doc·11</i></div></div>
-            <div class="demo-input mono">Try it: type a question…<span>↵</span></div>
+      <div class="demo" aria-label="Try it">
+        <div class="demo-chrome"><span class="mono" style="color:${hex}">● ${b.links?.demo ? 'Live app' : 'Source code'}</span><span class="u mono">${esc((b.links?.demo || b.links?.code || '').replace(/^https?:\/\//, '') || 'link coming soon')}</span></div>
+        <div class="demo-launch"><div class="pv-glow" style="background:${hex};opacity:.3"></div>
+          <p class="mono muted">${(b.page?.pipeline || []).map(esc).join(' → ')}</p>
+          <div class="demo-actions">
+            ${b.links?.demo ? `<a class="btn solid" href="${esc(b.links.demo)}" target="_blank" rel="noopener" data-cursor="Open">Open the live app <span class="arr">↗</span></a>` : ''}
+            ${b.links?.code ? `<a class="btn" href="${esc(b.links.code)}" target="_blank" rel="noopener" data-cursor="Open">View the code ↗</a>` : ''}
           </div>
         </div>
       </div>

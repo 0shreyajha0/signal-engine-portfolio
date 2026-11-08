@@ -2,7 +2,7 @@
 
 > **Purpose of this file.** Everything a new collaborator (human or a new Claude session/account) needs to continue this project without the original chat: what we're building, every decision and why, what exists where, how it was built step by step, what's still open, and how to pick up.
 >
-> **Last updated:** 2026-11-08 · **Owner:** Shreya Jha (GitHub: `0shreyajha0`)
+> **Last updated:** 2026-11-08 (real content pass) · **Owner:** Shreya Jha (GitHub: `0shreyajha0`)
 
 ---
 
@@ -79,7 +79,7 @@ Build a premium, highly interactive, **3D-animated personal portfolio** — firs
 - **Education:** B.Tech, Delhi Technological University (DTU), 2024 — Environmental Engineering major, CS minor, GPA 8.0
 - **Research/projects:** Noise Pollution Prediction ML model (adopted by DTU); indoor acoustic environment study (ICSTCE 2024); Medium articles on PM, growth, user psychology, experimentation
 - **Skills:** product strategy, roadmapping, pricing/monetisation, SQL, Python, Metabase, GA, A/B testing, KPIs/OKRs, AI evals, RAG, AWS Lambda, Figma, Unleash, Plotline, Jira, Git
-- **Public contact used on site:** shreyajha.co@gmail.com · linkedin.com/in/shreyajha-co (phone number intentionally NOT used anywhere)
+- **Public contact used on site:** shreyajha.co@gmail.com · linkedin.com/in/shreyajha-co · github.com/0shreyajha0 · medium.com/@0shreyajha0 (phone number is not on the pages themselves, but it is inside the linked resume PDF)
 
 ---
 
@@ -129,6 +129,12 @@ Build a premium, highly interactive, **3D-animated personal portfolio** — firs
    - Verified: no horizontal overflow at 375/768/1440, detail pages, Esc, no console errors.
 8. **Published.** Installed GitHub CLI (`brew install gh`), Shreya ran `gh auth login`. Name `shreya-portfolio` collided with her 2023 `Shreya-Portfolio` repo (GitHub names are case-insensitive) → chose **`signal-engine-portfolio`**. Created public repo, enabled Pages (workflow build), pushed. Deploy workflow auto-sets Vite `base` path via `actions/configure-pages`.
 9. **Copy synced** from the deck into `src/content/*` and deployed. Live site verified.
+10. **Real content added** (Shreya supplied links, resume, portrait):
+    - Portrait → `public/portrait.jpg`; resume → `public/resume.pdf` (note: the PDF includes her phone number).
+    - Links: GitHub `github.com/0shreyajha0`, Medium `medium.com/@0shreyajha0`, LinkedIn, Notion PM case studies (`app.notion.com/p/Shreya-s-Product-Management-Portfolio-22dd6689d302805aa796c3bc1f56279c` — not read; Notion MCP wasn't connected), email.
+    - Notebook: 9 real Medium essays from her RSS feed (`medium.com/feed/@0shreyajha0`), each linking out; featured = "Spec-Driven Development". Excluded as off-theme: "Types of Errors in JavaScript", "The Art of Balancing Multiple Responsibilities", and two 2024 environmental-science posts (G20 air quality; environmental science & tech).
+    - Build Lab: replaced placeholder AI slots with real GitHub projects, described only from their code/READMEs: Noise-Predicting-Model, virtual-Restaurants (Grubhub vs Uber Eats hours SQL), Stats-Dashboard, Data-Visualiser, plus this site. `Ultra-Writing-AI` skipped (unmodified React template). Project pages now show a "launch" panel (live app / code) instead of a chat mock.
+    - Placeholder copy written by Claude at Shreya's request (marked `PLACEHOLDER` in code — replace with her own words): About "why product" + "why AI" paragraphs; YesMadam ARPU problem, premium-discovery decision, marketplace-efficiency decision; PW ARPU problem.
 
 **Practical gotchas learned:**
 - Claude's sandboxed shell can't read the macOS keychain, so `gh`/`git push` must run in Shreya's own Terminal (Claude used the app's Terminal panel). Creating a *public* repo is blocked for Claude by the app's safety check — Shreya ran that command herself.
@@ -143,16 +149,19 @@ All site copy lives in `src/content/`. Anything beginning `[Draft]`/`[Placeholde
 
 **Approved & live:** hero (line option A: "Product manager for consumer, growth & AI products, with an engineer's hands."), fact strip (PM — YesMadam, ~1 yr · Physics Wallah, 2.5 yrs · B.Tech, DTU · CS minor), availability badge "Open to PM roles & challenges", Practice intro + three lens questions + proof points, Work rows with Problem/Decision/Outcome where known, About lead + DTU paragraph + 3 principles, contact & microcopy, Build entries "Noise Pollution Predictor" and "This Portfolio".
 
-**Still needed from Shreya (the deck's checklist):**
-- [ ] 3–5 real builds — for each: problem & user, opportunity, what was built, 2–3 product decisions + trade-offs, how it works (models/retrieval/tools/data/evals), personal contribution, status + demo link, results/learnings. (Current slots "RAG Assistant", "Workflow Agent", "Experiment Readout Tool" are placeholders.)
-- [ ] Medium profile/article links (title, link, date, read time, which to feature). Current 6 essays are placeholders.
-- [ ] GitHub profile URL, Medium URL, resume PDF → `public/resume.pdf`
-- [ ] About: "why product" story and "why AI now / what team" paragraph
-- [ ] Scale numbers for YesMadam & Physics Wallah
-- [ ] Missing "before"/decision lines: YesMadam ARPU problem, premium-discovery decision, marketplace-efficiency decision; PW ARPU problem; plan-structure metric
+**Done since the deck:** portrait, resume PDF, GitHub/Medium/LinkedIn/Notion links, 9 real Medium essays, 4 real GitHub builds + this site.
+
+**Placeholders Claude wrote (search `PLACEHOLDER` in `src/content/`) — replace with Shreya's own words:**
+- [ ] About: "why product" and "why AI now" paragraphs (`about.js`)
+- [ ] Work: YesMadam ARPU problem, premium-discovery decision, marketplace-efficiency decision; PW ARPU problem (`experience.js`)
+
+**Still needed from Shreya:**
+- [ ] AI builds (agents, RAG, GenAI) — the Build Lab intro promises them as "next". For each: problem & user, opportunity, what was built, 2–3 decisions + trade-offs, how it works, contribution, status + demo, results.
+- [ ] Remaining `[Draft]` fields on build pages (decision "why"s for the noise model; user/opportunity/results for other builds)
+- [ ] Notion case studies — could become Build Lab or Work content (connect Notion MCP or paste them)
+- [ ] Scale numbers for YesMadam & Physics Wallah; plan-structure metric
 - [ ] Solo vs team for each Work row (affects "I"/"we")
-- [ ] Portrait photo (4:5) and confirm DTU start year 2020
-- [ ] Noise Pollution Predictor details (inputs, how DTU uses it) + link `Noise-Predicting-Model` repo; decide where the ICSTCE paper goes (Build Lab "Experiment" or About → Research)
+- [ ] Confirm DTU start year 2020; decide where the ICSTCE paper goes
 
 ---
 
@@ -171,9 +180,9 @@ See `README.md` for the full table. Short version:
 
 ## 9. What's next (prioritised)
 
-1. Fill real builds + articles (biggest gaps; Build Lab and Notebook are the two pillars still mostly placeholder).
-2. Add GitHub/Medium/resume links; add portrait.
-3. Complete About stories and remaining Work "before"s.
+1. Add 1–3 AI builds (agent / RAG / GenAI) — the biggest gap for the AI PM positioning.
+2. Replace Claude's `PLACEHOLDER` copy (About stories, Work "before"s) with Shreya's own words.
+3. Pull PM case studies from the Notion portfolio into Work or Build Lab.
 4. Decide on `shreyajha.in`: add custom domain in repo Settings → Pages, then point DNS (replaces the current site).
 5. Update Figma: re-capture screens with About above Work and final copy (`generate_figma_design` with `?static`), keep System page in sync with `tokens.css`.
 6. Optional polish: OG share image, per-build architecture steps (`page.pipeline` in `builds.js`), essay bodies in reading mode, analytics.
@@ -183,7 +192,7 @@ See `README.md` for the full table. Short version:
 ## 10. Guardrails for whoever continues
 
 - Never invent projects, metrics, employers' scale or claims. Unknown → `[Draft]` + ask Shreya.
-- Don't publish her phone number or anything not already on the site.
+- Don't publish personal details beyond what's already on the site (her phone number appears only inside her own resume PDF).
 - Keep the three-lens colour meaning consistent: coral = Consumer, chartreuse = Growth, blue = AI.
 - Keep mobile-first, reduced-motion and 44px tap targets when adding UI.
 - Don't touch her old repos or the `shreyajha.in` domain without explicit approval.

@@ -21,7 +21,7 @@ export const JOBS = [
         pre: '+', n: 23, suf: '%', label: 'ARPU', lens: 'g',
         note: 'Cross-sell through recommendations and complementary services',
         story: {
-          problem: '', // TODO: what held ARPU back?
+          problem: 'Most bookings were a single service, so revenue per customer stayed flat even as orders grew.', // PLACEHOLDER — confirm
           decision: 'Cross-sell through recommendations and complementary service offers.',
           outcome: 'ARPU up 23%.',
         },
@@ -31,7 +31,7 @@ export const JOBS = [
         note: 'Laser & body toning; +12% conversion alongside',
         story: {
           problem: 'Premium categories (Laser, Body Toning) were hard to find.',
-          decision: '', // TODO: what changed — entry points, placement, ranking?
+          decision: 'Gave premium categories clearer entry points and better placement in browsing and search.', // PLACEHOLDER — confirm
           outcome: 'Discovery up 15%, conversion up 12%.',
         },
       },
@@ -40,7 +40,7 @@ export const JOBS = [
         note: 'Matching customer demand to professional supply',
         story: {
           problem: 'Customer demand and professional supply were out of balance.',
-          decision: '', // TODO: what changed in matching or scheduling?
+          decision: 'Improved how customer demand was matched to professional availability and scheduling.', // PLACEHOLDER — confirm
           outcome: 'Availability, fulfilment and ops efficiency up 6.5%.',
         },
       },
@@ -76,7 +76,7 @@ export const JOBS = [
         pre: '+', n: 20, suf: '%', label: 'Average ARPU', lens: 'g',
         note: 'Cross-selling woven into existing product journeys',
         story: {
-          problem: '', // TODO: what was missing in the purchase journeys?
+          problem: 'Learners usually bought one batch and stopped; related products weren’t shown where they made sense in the journey.', // PLACEHOLDER — confirm
           decision: 'Improved existing flows and added cross-sell features across journeys.',
           outcome: 'Average ARPU up 20%.',
         },

@@ -19,7 +19,7 @@ export function renderContact() {
       <div class="addr"><span id="email">${esc(LINKS.email)}</span><button class="copy" type="button" id="copyEmail" data-cursor="Copy">Copy</button></div>
     </div>
     <nav class="out" aria-label="Elsewhere">
-      ${out('LinkedIn', LINKS.linkedin)}${out('GitHub', LINKS.github)}${out('Resume (PDF)', LINKS.resume, 'Get')}${out('Medium', LINKS.medium)}
+      ${out('LinkedIn', LINKS.linkedin)}${out('GitHub', LINKS.github)}${out('Resume (PDF)', LINKS.resume, 'Get')}${out('Medium', LINKS.medium)}${out('PM case studies', LINKS.caseStudies)}${out('Email', 'mailto:' + LINKS.email, 'Write')}
     </nav>
   </div>
   <div class="foot mono">

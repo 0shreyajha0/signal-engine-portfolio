@@ -7,10 +7,12 @@ export const ABOUT = {
   lead: 'I trained as an engineer and built an ML model to predict noise pollution. Now I decide <em>what</em> gets built, and I still build it myself when that’s the fastest way to learn.',
   paragraphs: [
     'At DTU I studied environmental engineering with a minor in computer science. My projects there modelled noise: a pollution-prediction model the university adopted, and a study of acoustics in campus study spaces, published at ICSTCE 2024.',
-    '[Draft] Why product: the moment you moved from building to deciding what to build. Two or three sentences.',
-    '[Draft] Why AI now, and the kind of team you want to join.',
+    // PLACEHOLDER (written by Claude at Shreya's request) — replace with your own story:
+    'Building features taught me how things work. Watching people use them taught me what matters. Somewhere between writing code and reading support tickets, I realised I cared more about which problem we solved than how we solved it, so I moved into product.',
+    // PLACEHOLDER (written by Claude at Shreya's request) — replace with your own story:
+    'Today the most interesting product questions have a model in them: what to predict, when to trust it, and how to tell if it is helping. I want to work on AI-first consumer products, owning the problem end to end and still prototyping the hard parts myself.',
   ],
-  portrait: { src: '', alt: 'Portrait of Shreya Jha', badge: 'Open to PM roles & challenges', basedIn: 'Noida · Delhi NCR' },
+  portrait: { src: import.meta.env.BASE_URL + 'portrait.jpg', alt: 'Shreya Jha, smiling, in a navy blazer in a sunlit office', badge: 'Open to PM roles & challenges', basedIn: 'Noida · Delhi NCR' },
   path: [
     { year: '2020 — 24', title: 'B.Tech, DTU', detail: 'Env. Eng. + CS minor · ML research' },
     { year: '2023', title: 'X2S Technologies', detail: 'SDE Intern' },

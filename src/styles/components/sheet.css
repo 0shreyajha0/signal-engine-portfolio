@@ -25,6 +25,9 @@
 .demo-chrome { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
 .demo-chrome .u { flex: 1; min-width: 0; height: 26px; border-radius: 6px; background: var(--bg); display: flex; align-items: center; padding: 0 10px; color: var(--ink-3); overflow: hidden; white-space: nowrap; }
 .demo-chrome .muted { display: none; }
+.demo-launch { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: var(--s3); min-height: 220px; padding: var(--s4) 20px; }
+.demo-launch p { margin: 0; position: relative; }
+.demo-actions { display: flex; flex-wrap: wrap; gap: 10px; position: relative; }
 .demo-stage { display: grid; grid-template-columns: 1fr; min-height: 300px; }
 .demo-side { display: none; }
 .demo-main { padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; position: relative; overflow: hidden; }
