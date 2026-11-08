@@ -1,0 +1,12 @@
+/* Bottom dock: the section nav on phones and tablets (< 900px). Hidden on desktop. */
+.dock {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 55;
+  display: flex; gap: 2px; padding: 4px; max-width: calc(100vw - 24px); overflow-x: auto; scrollbar-width: none;
+  border-radius: 999px; background: rgba(29, 28, 26, .9); backdrop-filter: blur(12px); border: 1px solid var(--line-2);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, .7);
+}
+.dock::-webkit-scrollbar { display: none; }
+.dock a { flex: none; display: flex; align-items: center; min-height: var(--tap); padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
+.dock a[aria-current="true"] { background: var(--ink); color: var(--bg); }
+@media (min-width: 400px) { .dock a { padding: 0 14px; } }
+@media (min-width: 900px) { .dock { display: none; } }

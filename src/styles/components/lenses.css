@@ -1,0 +1,23 @@
+/* Practice: three lens columns. Stacked rows on mobile, three columns at 900+. */
+.lenses { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+.lens-col { position: relative; padding: var(--s4) 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: var(--s3); }
+.lens-col[data-lens="c"] { --lc: var(--c); } .lens-col[data-lens="g"] { --lc: var(--g); } .lens-col[data-lens="a"] { --lc: var(--a); }
+.lens-col .beam { height: 2px; background: var(--lc); transform-origin: left; transform: scaleX(.18); transition: transform var(--d3) var(--ease); box-shadow: 0 0 18px var(--lc); }
+.lens-col:hover .beam, .lens-col:focus-within .beam, .lens-col:focus .beam { transform: scaleX(1); }
+.lens-col h3 { margin: 0; font-size: var(--t-h3); line-height: 1; font-weight: 650; letter-spacing: -.025em; font-stretch: 110%; display: flex; justify-content: space-between; align-items: baseline; }
+.lens-col h3 .n { font-family: var(--f-mono); font-size: 12px; color: var(--lc); font-weight: 400; letter-spacing: .06em; }
+.lens-col .q { font-family: var(--f-serif); font-size: 20px; line-height: 1.35; font-weight: 300; margin: 0; max-width: 32ch; }
+.lens-col .evidence { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--ink-3); }
+.lens-col .evidence b { color: var(--lc); font-weight: 500; }
+.lens-col ul { list-style: none; margin: auto 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.lens-col li { font-size: 12.5px; color: var(--ink-2); padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; transition: border-color var(--d1), color var(--d1); }
+.lens-col:hover li { border-color: color-mix(in srgb, var(--lc) 45%, transparent); color: var(--ink); }
+.lens-foot { display: flex; flex-direction: column; gap: 8px; margin-top: var(--s3); color: var(--ink-3); }
+
+@media (min-width: 900px) {
+  .lenses { grid-template-columns: repeat(3, 1fr); }
+  .lens-col { padding: var(--s4) var(--s4) var(--s5) 0; border-bottom: 0; border-right: 1px solid var(--line); }
+  .lens-col + .lens-col { padding-left: var(--s4); }
+  .lens-col:last-child { border-right: 0; }
+  .lens-foot { flex-direction: row; justify-content: space-between; }
+}

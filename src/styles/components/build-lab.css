@@ -1,0 +1,47 @@
+/* Build Lab. Mobile: title + one-liner + status stacked. 640+: index + status columns. 1100+: full row with dek and lens dots. */
+.lab-tools { display: flex; flex-direction: column; gap: var(--s2); margin-bottom: var(--s3); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+
+.builds { border-top: 1px solid var(--line); }
+.build { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 28px; gap: 6px 10px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); transition: padding var(--d2) var(--ease); }
+.build::before { content: ""; position: absolute; inset: 0 calc(-1 * var(--s2)); background: var(--bg-2); opacity: 0; transition: opacity var(--d1); z-index: -1; border-radius: 6px; }
+.build:hover::before, .build:focus-visible::before { opacity: 1; }
+.build[hidden] { display: none; }
+.build .i, .build .l { display: none; }
+.build .t { grid-column: 1; font-size: clamp(22px, 6vw, 32px); font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-stretch: 100%; transition: font-stretch var(--d2) var(--ease); }
+.build .d { grid-column: 1; color: var(--ink-2); font-size: 14.5px; }
+.build .s { grid-column: 1; display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); margin-top: 4px; }
+.build .go { grid-column: 2; grid-row: 1 / span 3; opacity: .5; transition: opacity var(--d1), transform var(--d2) var(--ease); }
+.build:hover .go { opacity: 1; transform: translateX(4px); }
+
+@media (min-width: 640px) {
+  .lab-tools { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  .build { grid-template-columns: 44px minmax(0, 1fr) 130px 28px; gap: var(--s3); padding: 26px 0; }
+  .build .i { display: block; grid-column: 1; color: var(--ink-3); }
+  .build .t { grid-column: 2; }
+  .build .d { display: none; }
+  .build .s { grid-column: 3; margin-top: 0; }
+  .build .go { grid-column: 4; grid-row: auto; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .build:hover { padding-left: 12px; }
+  .build:hover .t { font-stretch: 115%; }
+}
+@media (min-width: 1100px) {
+  .build { grid-template-columns: 56px minmax(0, 1.6fr) minmax(0, 1fr) 150px 70px 28px; }
+  .build .d { display: block; grid-column: 3; }
+  .build .s { grid-column: 4; }
+  .build .l { display: flex; gap: 5px; grid-column: 5; }
+  .build .go { grid-column: 6; }
+}
+
+/* cursor-following preview card (fine pointer only; JS never shows it on touch) */
+.preview { position: fixed; left: 0; top: 0; z-index: 30; width: 340px; aspect-ratio: 4 / 3; max-width: 100%; pointer-events: none; opacity: 0; transform-style: preserve-3d; transition: opacity var(--d1); border-radius: 10px; overflow: hidden; border: 1px solid var(--line-2); background: var(--bg-2); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .8); }
+.preview.on { opacity: 1; }
+.pv-ui { position: absolute; inset: 0; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.pv-bar { display: flex; gap: 5px; }
+.pv-bar i { width: 7px; height: 7px; border-radius: 50%; background: var(--line-2); }
+.pv-row { height: 10px; border-radius: 3px; background: var(--line); }
+.pv-glow { position: absolute; width: 220px; height: 220px; border-radius: 50%; filter: blur(40px); opacity: .45; right: -60px; bottom: -80px; }
+.pv-tag { position: absolute; left: 14px; bottom: 12px; color: var(--ink-2); display: flex; gap: 6px; align-items: center; }

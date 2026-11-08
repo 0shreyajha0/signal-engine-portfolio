@@ -1,0 +1,27 @@
+/* Command menu, custom cursor, toast. */
+
+/* ⌘K menu */
+.cmdk { position: fixed; inset: 0; z-index: 90; display: grid; place-items: start center; padding-top: 12vh; background: rgba(5, 5, 4, .6); backdrop-filter: blur(8px); }
+.cmdk[hidden] { display: none !important; }
+.cmdk-box { width: min(620px, calc(100% - 32px)); background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; box-shadow: 0 40px 120px -20px rgba(0, 0, 0, .8); animation: pop var(--d2) var(--ease); }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+.cmdk input { width: 100%; height: 58px; padding: 0 20px; background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--ink); font: 500 17px var(--f-display); outline: none; }
+.cmdk ul { list-style: none; margin: 0; padding: 8px; max-height: 52vh; overflow: auto; }
+.cmdk li { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: var(--tap); padding: 8px 12px; border-radius: 9px; cursor: pointer; font-size: 15px; }
+.cmdk li[aria-selected="true"] { background: var(--bg-3); }
+.cmdk li .mono { color: var(--ink-3); flex: none; }
+.cmdk .grp { min-height: 0; padding: 10px 12px 4px; color: var(--ink-3); cursor: default; }
+
+/* custom cursor (fine pointer only) */
+.cur { position: fixed; left: 0; top: 0; z-index: 95; pointer-events: none; mix-blend-mode: difference; }
+.cur .dt { position: absolute; width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #fff; border-radius: 50%; }
+.cur .rg { position: absolute; width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 50%; display: grid; place-items: center; transition: width var(--d2) var(--ease), height var(--d2) var(--ease), margin var(--d2) var(--ease), background var(--d1); }
+.cur .rg span { font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity var(--d1); }
+.cur.big .rg { width: 76px; height: 76px; margin: -38px 0 0 -38px; background: #fff; border-color: #fff; }
+.cur.big .rg span { opacity: 1; }
+@media (hover: hover) and (pointer: fine) { body.has-cur, body.has-cur a, body.has-cur button { cursor: none; } }
+@media (hover: none), (pointer: coarse) { .cur { display: none; } }
+
+/* toast — sits above the mobile dock */
+.toast { position: fixed; left: 50%; bottom: calc(24px + var(--dock-space) + env(safe-area-inset-bottom, 0px)); z-index: 99; transform: translate(-50%, 20px); opacity: 0; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: all var(--d2) var(--ease); pointer-events: none; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }

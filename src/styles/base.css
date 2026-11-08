@@ -1,0 +1,42 @@
+/* Reset, global elements, utilities, background layers, reduced motion. */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-display); font-size: var(--t-body); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--a); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--a); color: var(--bg); }
+
+/* utilities */
+.mono { font-family: var(--f-mono); font-size: var(--t-meta); letter-spacing: .06em; text-transform: uppercase; }
+.serif { font-family: var(--f-serif); }
+.ph { text-decoration: underline dashed var(--ink-3); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.wrap { padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.dot.c { background: var(--c); } .dot.g { background: var(--g); } .dot.a { background: var(--a); }
+.lens-c { color: var(--c); } .lens-g { color: var(--g); } .lens-a { color: var(--a); }
+.kbd { font-family: var(--f-mono); font-size: 10.5px; border: 1px solid var(--line-2); border-radius: 5px; padding: 1px 5px; color: var(--ink-2); }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--ink); color: var(--bg); padding: 8px 12px; border-radius: 6px; }
+.skip:focus { left: 16px; }
+
+/* background layers */
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; transition: opacity var(--d3) var(--ease); }
+main, header, footer { position: relative; z-index: 1; }
+.grain {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: .06; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* reduced motion: OS setting or the footer toggle (html.calm) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+html.calm *, html.calm *::before, html.calm *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+html.calm { scroll-behavior: auto; }

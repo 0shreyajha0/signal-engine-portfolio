@@ -1,0 +1,33 @@
+/* Contact + footer. Mobile: stacked, links one per row, extra bottom space for the dock. */
+.contact { padding-block: var(--s8) var(--s6); border-top: 1px solid var(--line); }
+.contact > .k { color: var(--ink-3); }
+.contact h2 { margin: var(--s3) 0 0; font-size: clamp(52px, 15vw, 170px); line-height: .88; font-weight: 750; letter-spacing: -.05em; font-stretch: 80%; }
+.contact h2 em { font-family: var(--f-serif); font-weight: 300; font-style: italic; letter-spacing: -.03em; }
+.contact-row { display: flex; flex-direction: column; gap: var(--s5); margin-top: var(--s5); }
+.mail { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.mail .k { color: var(--ink-3); }
+.mail .addr { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mail .addr span { font-size: clamp(20px, 5.6vw, 34px); font-weight: 500; letter-spacing: -.02em; user-select: all; overflow-wrap: anywhere; }
+.copy { min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 13px; display: inline-flex; align-items: center; transition: all var(--d1); }
+.copy:hover { background: var(--ink); color: var(--bg); }
+.copy[data-done="true"] { background: var(--g); color: var(--bg); border-color: var(--g); }
+.out { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+.out a { display: flex; justify-content: space-between; align-items: center; min-height: 56px; border-bottom: 1px solid var(--line); font-weight: 500; transition: padding var(--d2) var(--ease); }
+.out a .mono { color: var(--ink-3); }
+.out a:hover { padding-left: 8px; }
+.foot {
+  display: flex; flex-direction: column; gap: var(--s2); color: var(--ink-3); border-top: 1px solid var(--line); margin-top: var(--s6);
+  padding-block: var(--s4) calc(var(--s4) + var(--dock-space) + env(safe-area-inset-bottom, 0px));
+}
+.foot button, .foot a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 6px; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .foot button, .foot a { min-height: 28px; } }
+
+@media (min-width: 640px) {
+  .out { grid-template-columns: 1fr 1fr; column-gap: var(--s3); }
+  .foot { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+}
+@media (min-width: 900px) {
+  .contact-row { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--s3); align-items: end; margin-top: var(--s6); }
+  .mail { grid-column: 1 / span 6; }
+  .out { grid-column: 8 / -1; }
+}

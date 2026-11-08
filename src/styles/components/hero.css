@@ -1,0 +1,50 @@
+/* Hero. Mobile: 3D sits above, copy below. 900+: copy left, 3D right, full-height. */
+.hero { display: flex; flex-direction: column; padding-top: 96px; padding-bottom: var(--s5); }
+.hero-copy { padding-top: min(30vh, 260px); }
+.eyebrow { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; color: var(--ink-2); margin-bottom: var(--s3); }
+.eyebrow .live { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+.eyebrow .live .dot { background: var(--g); animation: ping 2.4s var(--ease) infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(211, 226, 122, .5); } 70%, 100% { box-shadow: 0 0 0 10px rgba(211, 226, 122, 0); } }
+
+.name { font-size: var(--t-hero); line-height: .84; font-weight: 750; letter-spacing: -.045em; margin: 0; font-stretch: 88%; user-select: none; }
+.name .ln { display: block; white-space: nowrap; }
+.name .ch { display: inline-block; font-variation-settings: "wdth" var(--w, 88), "wght" var(--wg, 750); transition: font-variation-settings 380ms var(--ease); }
+
+.role { margin: var(--s3) 0 0; max-width: 30ch; font-family: var(--f-serif); font-size: clamp(22px, 6vw, 36px); line-height: 1.2; font-weight: 300; letter-spacing: -.01em; }
+.role .lens { font-style: italic; position: relative; white-space: nowrap; cursor: default; }
+.role .lens::after { content: ""; position: absolute; left: 0; right: 0; bottom: .06em; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--d2) var(--ease); }
+.role .lens.c { color: var(--c); } .role .lens.g { color: var(--g); } .role .lens.a { color: var(--a); }
+.role .lens:hover::after { transform: scaleX(1); }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s4); }
+
+.hero-foot { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); border-top: 1px solid var(--line); padding-top: var(--s2); margin-top: var(--s6); }
+.hero-foot div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.hero-foot .k { color: var(--ink-3); }
+.hero-foot .v { font-size: 14px; font-weight: 500; }
+.scrollcue { display: none !important; }
+.hint3d { display: none; }
+
+@media (min-width: 640px) {
+  .hero { padding-top: 110px; }
+  .hero-copy { padding-top: 34vh; }
+  .hero-actions { gap: 12px; margin-top: var(--s5); }
+}
+@media (min-width: 900px) {
+  .hero {
+    display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: 1fr auto; column-gap: var(--s3);
+    min-height: min(100svh, 980px); padding-top: 120px;
+  }
+  .hero-copy { grid-column: 1 / span 8; align-self: center; padding-top: 0; }
+  .role { margin-top: var(--s4); }
+  .hero-foot { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); margin-top: 0; }
+  .hero-foot .v { font-size: 15px; }
+  .scrollcue { display: flex !important; justify-self: end; align-items: flex-end; text-align: right; }
+  .scrollcue .line { width: 1px; height: 36px; background: var(--line-2); position: relative; overflow: hidden; }
+  .scrollcue .line::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--ink); animation: drip 2s var(--ease) infinite; }
+}
+@keyframes drip { to { top: 110%; } }
+@media (min-width: 1100px) {
+  .hint3d { position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; color: var(--ink-3); text-align: right; pointer-events: none; }
+}
+@media (hover: none) { .hint3d { display: none; } }

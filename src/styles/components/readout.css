@@ -1,0 +1,11 @@
+/* Desktop-only instrument readout, bottom-left. */
+.readout { display: none; }
+@media (min-width: 900px) {
+  .readout {
+    position: fixed; left: max(var(--gutter), env(safe-area-inset-left, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40;
+    display: flex; gap: 14px; align-items: center; color: var(--ink-3); pointer-events: none;
+  }
+  .readout .bar { width: 80px; height: 2px; background: var(--line); position: relative; overflow: hidden; border-radius: 2px; }
+  .readout .bar i { position: absolute; inset: 0; background: var(--ink); transform-origin: left; transform: scaleX(0); }
+  .readout b { color: var(--ink); font-weight: 500; }
+}

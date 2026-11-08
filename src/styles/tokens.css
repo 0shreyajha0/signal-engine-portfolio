@@ -1,0 +1,55 @@
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS — "Signal Engine"
+   Mirrors the Figma variables (01 · System). Change a value here
+   and it updates everywhere.
+   Breakpoints (mobile-first, min-width): 640 · 900 · 1100
+   ───────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: dark;
+
+  /* ground */
+  --bg: #0D0D0C;  --bg-2: #151513;  --bg-3: #1D1C1A;
+  --line: rgba(236, 232, 225, .12);  --line-2: rgba(236, 232, 225, .22);
+
+  /* ink */
+  --ink: #ECE8E1;  --ink-2: #ABA69D;  --ink-3: #8A857D;
+
+  /* lenses — the only accents */
+  --c: #FF8A66;  /* Consumer */
+  --g: #D3E27A;  /* Growth */
+  --a: #93B7FF;  /* AI */
+
+  /* paper (reading mode) */
+  --paper: #F2EEE7;  --paper-ink: #1A1916;  --paper-ink-2: #5B574F;  --paper-line: rgba(26, 25, 22, .14);
+
+  /* type */
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --t-hero: clamp(56px, 17.5vw, 96px);
+  --t-h2: clamp(40px, 11vw, 64px);
+  --t-h3: clamp(26px, 6vw, 32px);
+  --t-lead: 19px;
+  --t-body: 16px;
+  --t-meta: 12px;
+
+  /* space (8pt) — section rhythm grows at larger widths */
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 48px; --s6: 64px; --s7: 72px; --s8: 96px;
+  --gutter: 20px;
+  --tap: 44px;                 /* minimum touch target */
+  --dock-space: 96px;          /* room under content for the mobile dock */
+
+  /* motion — one curve, three speeds */
+  --ease: cubic-bezier(.2, .7, 0, 1);
+  --d1: 240ms; --d2: 520ms; --d3: 900ms;
+}
+
+@media (min-width: 640px) {
+  :root { --t-hero: clamp(80px, 13vw, 140px); --t-h2: clamp(52px, 8vw, 80px); --t-lead: 21px; --gutter: 4vw; }
+}
+@media (min-width: 900px) {
+  :root { --s7: 96px; --s8: 144px; --dock-space: 0px; --t-h3: clamp(28px, 2.8vw, 40px); }
+}
+@media (min-width: 1100px) {
+  :root { --t-hero: clamp(120px, 11.5vw, 188px); --t-h2: clamp(64px, 6.4vw, 104px); --t-lead: clamp(19px, 1.6vw, 24px); }
+}
